@@ -1,0 +1,13 @@
+{
+  "name": "barber-loyalty-app",
+  "version": "1.0.0",
+  "description": "App de tarjetas de fidelidad para barbería, con panel de personal y tarjeta pública por cliente.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongodb": "^7.6.0"
+  }
+}
