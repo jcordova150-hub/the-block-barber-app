@@ -121,7 +121,7 @@ function renderClientList(){
 
 // ---------- Tarjeta ----------
 
-const REWARD_LABELS = ['50%<br>Descuento', 'Corte<br>Gratis'];
+const REWARD_LABELS = ['<span class="pct">50%</span><br>Descuento', 'Corte<br>Gratis'];
 
 function buildStampRow(stampedCount, rowStart, perRow, rowIndex){
   let h = '<div class="stamp-row" style="grid-template-columns: repeat('+perRow+', 1fr) 1.3fr;">';
