@@ -121,7 +121,10 @@ function renderClientList(){
 
 // ---------- Tarjeta ----------
 
-const REWARD_LABELS = ['<span class="pct">50%</span><br>Descuento', 'Corte<br>Gratis'];
+const REWARD_LABELS = [
+  {main:'50%', sub:'Descuento'},
+  {main:'Corte', sub:'Gratis'}
+];
 
 function buildStampRow(stampedCount, rowStart, perRow, rowIndex){
   let h = '<div class="stamp-row" style="grid-template-columns: repeat('+perRow+', 1fr) 1.3fr;">';
@@ -132,8 +135,8 @@ function buildStampRow(stampedCount, rowStart, perRow, rowIndex){
       : '<div class="stamp-slot">'+(idx+1+rowIndex)+'</div>';
   }
   const earned = stampedCount >= (rowStart+perRow);
-  const label = REWARD_LABELS[rowIndex] || 'Premio';
-  h += '<div class="reward-box'+(earned?' earned':'')+'">'+label+'</div>';
+  const reward = REWARD_LABELS[rowIndex] || {main:'Premio', sub:''};
+  h += '<div class="reward-box'+(earned?' earned':'')+'"><span class="rw-main">'+reward.main+'</span><span class="rw-sub">'+reward.sub+'</span></div>';
   h += '</div>';
   return h;
 }

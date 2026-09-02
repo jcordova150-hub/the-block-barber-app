@@ -104,7 +104,8 @@ body{
   background: radial-gradient(circle, var(--gold-hi), var(--gold) 70%);
   box-shadow: 0 0 18px 2px rgba(243,216,120,0.55);
 }
-.reward-box .pct{ font-size: 0.85em; }
+.reward-box .rw-main{ display:block; font-size:16px; line-height:1.05; letter-spacing:0.2px; }
+.reward-box .rw-sub{ display:block; font-size:8px; letter-spacing:0.8px; margin-top:3px; opacity:.85; }
 
 .ticket-foot{ display:flex; justify-content:space-between; align-items:center; border-top: 1px solid var(--line); padding-top:12px; margin-top:6px; font-size:11px; color: var(--muted); }
 .ticket-foot .phone{ color: var(--gold); font-weight:600; }
