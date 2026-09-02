@@ -239,6 +239,19 @@ async function deleteClient(id){
 
 // ---------- Alta de cliente ----------
 
+function openWhatsAppWithCard(client){
+  const publicUrl = window.location.origin + '/card/' + client.id;
+  const message = 'Hola ' + client.name + '! Aquí está tu tarjeta de fidelidad de ' + settings.name + '. ' +
+    'Escanea el QR o abre este link para ver tus sellos: ' + publicUrl;
+  const digits = (client.phone || '').replace(/\D/g, '');
+  let phoneForWa = '';
+  if(digits.length === 10) phoneForWa = '52' + digits;
+  else if(digits.length > 10) phoneForWa = digits;
+  const base = phoneForWa ? 'https://wa.me/' + phoneForWa : 'https://api.whatsapp.com/send';
+  const url = base + '?text=' + encodeURIComponent(message);
+  window.open(url, '_blank');
+}
+
 document.getElementById('addClientBtn').addEventListener('click', async ()=>{
   const nameEl = document.getElementById('newName');
   const phoneEl = document.getElementById('newPhone');
@@ -254,6 +267,7 @@ document.getElementById('addClientBtn').addEventListener('click', async ()=>{
     nameEl.value=''; phoneEl.value='';
     renderClientList();
     renderCard();
+    openWhatsAppWithCard(newClient);
   }catch(e){ errEl.textContent = e.message; }
 });
 
